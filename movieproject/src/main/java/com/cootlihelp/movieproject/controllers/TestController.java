@@ -7,16 +7,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("api/message")
+@RequestMapping("")
 /**
  * TestController
  */
 public class TestController {
 
-    @GetMapping("/hello")
+    @GetMapping("/")
 
     public ResponseEntity<String> get() {
-        return ResponseEntity.ok("It works!");
+        return ResponseEntity.ok("Welcome to the jungle B*TCH!");
     }
 }
 
