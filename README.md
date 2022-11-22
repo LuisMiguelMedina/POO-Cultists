@@ -21,6 +21,6 @@
 
 ## Project Materials :closed_book:
 
-* [Material of presentation](/Files/First%20Stage.pdf)
+* [Material of presentation]()
 
-* [Video presentation](https://youtu.be/NaFzGoXHl6E)
+* [Video presentation]()
