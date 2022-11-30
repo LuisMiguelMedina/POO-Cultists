@@ -1,22 +1,16 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
     @Id
     @Column(name = "user_id")
-    @SequenceGenerator(
-            name = "user_sequence",
-            sequenceName = "user_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
-    )
-    private int userId;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
     @Column(
             name = "username",
             unique = true,
@@ -30,18 +24,23 @@ public class User {
     )
     private String email;
 
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Raitings> raitingsList;
+
+
     public User (){ }
-    public User(int userId, String username, String email) {
+    public User(Long userId, String username, String email) {
         this.userId = userId;
         this.username = username;
         this.email = email;
     }
 
-    public int getUserId() {
+    public Long getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -60,4 +59,6 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+
 }

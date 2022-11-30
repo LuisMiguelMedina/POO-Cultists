@@ -1,14 +1,12 @@
 package Entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Time;
 
 @Entity
 @Table(name = "raitings")
-public class Raitings {
+public class Raitings implements Serializable {
     @Id
     @Column(
             name = "raiting_id",
@@ -36,6 +34,11 @@ public class Raitings {
             columnDefinition = "TEXT"
     )
     private String review;
+
+    //Muchos ratings tienen un a pelicula
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_")
+    private Movies movie;
 
     public  Raitings() {}
 

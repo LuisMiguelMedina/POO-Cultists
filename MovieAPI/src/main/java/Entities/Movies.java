@@ -1,33 +1,40 @@
 package Entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "movies")
-public class Movies {
+public class Movies implements Serializable {
 
     @Id
-    @Column(name = "movie_id")
-    @SequenceGenerator(
-            name = "movies_sequence",
-            sequenceName = "movies_sequence",
-            allocationSize = 1
+    @Column(
+            name = "movie_id",
+            unique = true
     )
+
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "movies_sequence"
+            strategy = GenerationType.SEQUENCE
     )
-    private int movieId;
+    private Integer movieId;
 
     @Column(name = "relase_year")
-    private int relaseYear;
+    private Integer relaseYear;
 
     @Column(name = "created_at")
     private Date createdAt;
 
     @Column(name = "update_at")
     private Date updateAt;
+
+    //Una pelicula tiene muchos ratings
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
+    private List<Raitings> raitingsList;
+
+
+
 
     public Movies() {
 
