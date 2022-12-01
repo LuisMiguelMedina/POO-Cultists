@@ -2,7 +2,7 @@ package com.encora.movieapi.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 @Entity
@@ -10,26 +10,22 @@ import java.util.List;
 public class Movies implements Serializable {
 
     @Id
-    @Column(
-            name = "movie_id",
-            unique = true
-    )
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE
+            strategy = GenerationType.IDENTITY
     )
-    private Integer movieId;
+    private int movieId;
 
     @Column(name = "movie_name")
-    private String name;
+    private String movie_name;
 
     @Column(name = "relase_year")
-    private Integer relaseYear;
+    private int relaseYear;
 
     @Column(name = "created_at")
-    private Date createdAt;
+    private Time createdAt;
 
     @Column(name = "update_at")
-    private Date updateAt;
+    private Time updateAt;
 
     //Una pelicula tiene muchos ratings
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
@@ -42,9 +38,9 @@ public class Movies implements Serializable {
 
     }
 
-    public Movies(int movieId, String name, int relaseYear, Date createdAt, Date updateAt) {
+    public Movies(int movieId, String name, int relaseYear, Time createdAt, Time updateAt) {
         this.movieId = movieId;
-        this.name = name;
+        this.movie_name = name;
         this.relaseYear = relaseYear;
         this.createdAt = createdAt;
         this.updateAt = updateAt;
@@ -59,11 +55,11 @@ public class Movies implements Serializable {
     }
 
     public String getName() {
-        return name;
+        return movie_name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.movie_name = name;
     }
 
     public int getRelaseYear() {
@@ -74,19 +70,19 @@ public class Movies implements Serializable {
         this.relaseYear = relaseYear;
     }
 
-    public Date getCreatedAt() {
+    public Time getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Time createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdateAt() {
+    public Time getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(Time updateAt) {
         this.updateAt = updateAt;
     }
 }

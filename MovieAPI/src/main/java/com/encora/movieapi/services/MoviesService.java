@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.encora.movieapi.Entities.Movies;
 import com.encora.movieapi.repositories.MoviesRepository;
@@ -22,6 +23,7 @@ public class MoviesService {
         return moviesRepository.findAll();
     }
 
+    @Transactional
     public Movies save(Movies movie){
         return moviesRepository.save(movie);
     }

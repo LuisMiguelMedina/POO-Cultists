@@ -10,7 +10,7 @@ public class User implements Serializable {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long userId;
+    private int userId;
     @Column(
             name = "username",
             unique = true,
@@ -22,7 +22,7 @@ public class User implements Serializable {
             unique = true,
             nullable = false
     )
-    private String email;
+    private String user_email;
 
 
     /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
@@ -30,17 +30,17 @@ public class User implements Serializable {
 
 
     public User (){ }
-    public User(Long userId, String username, String email) {
+    public User(int userId, String username, String user_email) {
         this.userId = userId;
         this.username = username;
-        this.email = email;
+        this.user_email = user_email;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
@@ -53,11 +53,11 @@ public class User implements Serializable {
     }
 
     public String getEmail() {
-        return email;
+        return user_email;
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.user_email = email;
     }
 
 
