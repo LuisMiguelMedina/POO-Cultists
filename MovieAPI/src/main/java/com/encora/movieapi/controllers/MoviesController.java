@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/movies")
 public class MoviesController{
     
     private final MoviesRepository moviesRepository;
@@ -25,13 +25,13 @@ public class MoviesController{
         this.moviesRepository = moviesRepository;
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Movies createMovie(@RequestBody Movies movie){
         return moviesRepository.save(movie);
     }
     
-    @GetMapping("/")
+    @GetMapping("/allmovies")
     public List<Movies> getAllMovies(){
         return moviesRepository.findAll();
     }
