@@ -1,6 +1,6 @@
 package com.encora.movieapi.controllers;
 
-import freemarker.template.*;
+import Freemarker.Template.*;
 
 import java.io.File;
 import java.io.IOException;
