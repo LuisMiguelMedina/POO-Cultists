@@ -13,7 +13,7 @@ public class Raitings implements Serializable {
             nullable = false,
             unique = true
     )
-    private String raintingId;
+    private int  raintingId;
 
     @Column(
             name = "time",
@@ -42,18 +42,18 @@ public class Raitings implements Serializable {
 
     public  Raitings() {}
 
-    public Raitings(String raintingId, Time time, String summary, String review) {
+    public Raitings(int raintingId, Time time, String summary, String review) {
         this.raintingId = raintingId;
         this.time = time;
         this.summary = summary;
         this.review = review;
     }
 
-    public String getRaintingId() {
+    public int getRaintingId() {
         return raintingId;
     }
 
-    public void setRaintingId(String raintingId) {
+    public void setRaintingId(int raintingId) {
         this.raintingId = raintingId;
     }
 

@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.encora.movieapi.Entities.User;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+
 }
