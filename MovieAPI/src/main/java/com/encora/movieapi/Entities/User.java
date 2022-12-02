@@ -2,6 +2,7 @@ package com.encora.movieapi.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 //import java.util.List;
 
 @Entity
@@ -25,8 +26,12 @@ public class User implements Serializable {
     private String user_email;
 
 
-    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "user")
-    private List<Raitings> raitingsList;*/
+    //Relationships
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Ratings> ratingsList;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Movies> moviesList;
 
 
     public User (){ }
@@ -60,5 +65,27 @@ public class User implements Serializable {
         this.user_email = email;
     }
 
+    public String getUser_email() {
+        return user_email;
+    }
 
+    public void setUser_email(String user_email) {
+        this.user_email = user_email;
+    }
+
+    public List<Ratings> getRatingsList() {
+        return ratingsList;
+    }
+
+    public void setRatingsList(List<Ratings> ratingsList) {
+        this.ratingsList = ratingsList;
+    }
+
+    public List<Movies> getMoviesList() {
+        return moviesList;
+    }
+
+    public void setMoviesList(List<Movies> moviesList) {
+        this.moviesList = moviesList;
+    }
 }

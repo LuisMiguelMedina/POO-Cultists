@@ -1,12 +1,11 @@
 package com.encora.movieapi.controllers;
 
 
-import com.encora.movieapi.Entities.Raitings;
+import com.encora.movieapi.Entities.Ratings;
 import com.encora.movieapi.repositories.RaitingsRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.awt.geom.QuadCurve2D;
 import java.util.List;
 
 @RestController
@@ -21,12 +20,12 @@ public class RaitingsController {
 
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Raitings createRating(@RequestBody Raitings raitings){
-        return raitingsRepository.save(raitings);
+    public Ratings createRating(@RequestBody Ratings ratings){
+        return raitingsRepository.save(ratings);
     }
 
     @GetMapping("/allratings")
-    public List<Raitings> getAllRatings(){
+    public List<Ratings> getAllRatings(){
         return raitingsRepository.findAll();
     }
 }

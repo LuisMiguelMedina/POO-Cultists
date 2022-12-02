@@ -5,8 +5,8 @@ import java.io.Serializable;
 import java.sql.Time;
 
 @Entity
-@Table(name = "raitings")
-public class Raitings implements Serializable {
+@Table(name = "ratings")
+public class Ratings implements Serializable {
     @Id
     @Column(
             name = "raiting_id",
@@ -35,14 +35,20 @@ public class Raitings implements Serializable {
     )
     private String review;
 
-    //Muchos ratings tienen un a pelicula
+    //Relationships
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "movies_id")
     private Movies movie;
 
-    public  Raitings() {}
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    public Raitings(int raintingId, Time time, String summary, String review) {
+    //Constructors
+    public Ratings() {}
+
+    public Ratings(int raintingId, Time time, String summary, String review) {
         this.raintingId = raintingId;
         this.time = time;
         this.summary = summary;
@@ -79,5 +85,21 @@ public class Raitings implements Serializable {
 
     public void setReview(String review) {
         this.review = review;
+    }
+
+    public Movies getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Movies movie) {
+        this.movie = movie;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

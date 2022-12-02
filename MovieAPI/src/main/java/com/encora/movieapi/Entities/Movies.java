@@ -11,7 +11,7 @@ public class Movies implements Serializable {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.IDENTITY
+            strategy = GenerationType.AUTO
     )
     private int movieId;
 
@@ -27,9 +27,14 @@ public class Movies implements Serializable {
     @Column(name = "update_at")
     private Date updateAt;
 
-    //Una pelicula tiene muchos ratings
+    //Relationships
+
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Raitings> raitingsList;
+    private List<Ratings> ratingsList;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
 

@@ -1,6 +1,6 @@
 package com.encora.movieapi.services;
 
-import com.encora.movieapi.Entities.Raitings;
+import com.encora.movieapi.Entities.Ratings;
 import com.encora.movieapi.repositories.RaitingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,16 +12,16 @@ public class RaitingsService {
     @Autowired
     RaitingsRepository raitingsRepository;
 
-    public Optional<Raitings> findById(int id){
+    public Optional<Ratings> findById(int id){
         return raitingsRepository.findById(id);
     }
 
-    public List<Raitings> getAll(){
+    public List<Ratings> getAll(){
         return  raitingsRepository.findAll();
     }
 
     @Transactional
-    public Raitings save(Raitings raitings){
-        return raitingsRepository.save(raitings);
+    public Ratings save(Ratings ratings){
+        return raitingsRepository.save(ratings);
     }
 }
