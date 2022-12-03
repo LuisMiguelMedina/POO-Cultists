@@ -23,12 +23,12 @@ public class UserController {
     //Create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public User createuser(@RequestBody User user){
+    public User createUser(@RequestBody User user){
         return userRepository.save(user);
     }
 
     //Update
-    @PutMapping("/{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User user){
         Optional<User> userOptional = userRepository.findById(id);
         if(userOptional.isEmpty()) return ResponseEntity.notFound().build();
@@ -40,7 +40,7 @@ public class UserController {
     }
 
     //Delete
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable int id){
         userRepository.deleteById(id);
     }
@@ -53,7 +53,7 @@ public class UserController {
 
     //ReadById
 
-    @GetMapping("/{id}")
+    @GetMapping("readId/{id}")
     public User findByIdUser(@PathVariable int id){
         Optional<User> user = userRepository.findById(id);
         return user.get();

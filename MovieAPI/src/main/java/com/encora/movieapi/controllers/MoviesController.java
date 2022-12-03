@@ -1,8 +1,8 @@
 package com.encora.movieapi.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import com.encora.movieapi.Entities.Ratings;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import com.encora.movieapi.Entities.Movies;
 import com.encora.movieapi.Entities.User;
@@ -17,10 +17,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
@@ -35,6 +31,7 @@ public class MoviesController{
         this.userRepository = userRepository;
     }
 
+    //Create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Movies createMovie(@RequestBody String str) throws JsonMappingException, JsonProcessingException{
@@ -46,13 +43,33 @@ public class MoviesController{
         userRepository.save(user);
         return moviesRepository.save(movie);
     }
-    
-    @GetMapping("/all")
+
+    //Update
+    @PutMapping("update/{id}")
+    public ResponseEntity<Movies> updateMovie(@PathVariable("id") int id, @RequestBody Movies movies){
+        Optional<Movies> moviesOptional = moviesRepository.findById(id);
+        if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
+
+        movies.setMovieId(id);
+        moviesRepository.save(movies);
+
+        return ResponseEntity.noContent().build();
+    }
+
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteMovie(@PathVariable int id){
+        moviesRepository.deleteById(id);
+    }
+
+    //ReadAll
+    @GetMapping("/allMovies")
     public List<Movies> getAllMovies(){
         return moviesRepository.findAll();
     }
 
-    @GetMapping("/{id}")
+    //ReadByID
+    @GetMapping("readId/{id}")
     public Optional<Movies> getById(@PathVariable("id") int id){
         return moviesRepository.findById(id);
     }

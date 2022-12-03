@@ -1,8 +1,5 @@
 package com.encora.movieapi.Entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -10,10 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 
-@JsonIgnoreProperties(
-        value = {"createdAt", "updateAt"},
-        allowGetters = true
-)
+
 @Entity
 @Table(name = "movies")
 public class Movies implements Serializable {
@@ -30,14 +24,11 @@ public class Movies implements Serializable {
     @Column(name = "release_year")
     private int releaseYear;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "created_at", nullable = false, updatable = false)
-    @CreatedDate
+
+    @Column(name = "created_at", updatable = false)
     private Date createdAt;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "update_at", nullable = false)
-    @LastModifiedDate
+    @Column(name = "update_at")
     private Date updateAt;
 
     //Relationships
