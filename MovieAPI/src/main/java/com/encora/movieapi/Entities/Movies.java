@@ -3,9 +3,7 @@ package com.encora.movieapi.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -16,7 +14,7 @@ public class Movies implements Serializable {
     @GeneratedValue(
             strategy = GenerationType.AUTO
     )
-    private int movieId;
+    private Long movieId;
 
     @Column(name = "movie_name")
     private String movie_name;
@@ -25,20 +23,20 @@ public class Movies implements Serializable {
     private int releaseYear;
 
 
-    @Column(name = "created_at", updatable = false)
-    private Date createdAt;
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
 
     @Column(name = "update_at")
-    private Date updateAt;
+    private LocalDateTime updateAt;
 
     //Relationships
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Ratings> ratingsList;
+    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
+    private List<Ratings> ratingsList;*/
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "user_id")
-    private User user;
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = User.class)
+    @JoinColumn(name = "users")
+    private User users;
 
 
 
@@ -48,18 +46,17 @@ public class Movies implements Serializable {
     }
 
     //Createdad lo quite porque al parecer con las anotaciones hará ese trabajo
-    public Movies(int movieId, String name, int releaseYear, Date updateAt) {
+    public Movies(Long movieId, String name, int releaseYear) {
         this.movieId = movieId;
         this.movie_name = name;
         this.releaseYear = releaseYear;
-        this.updateAt = updateAt;
     }
 
-    public int getMovieId() {
+    public Long getMovieId() {
         return movieId;
     }
 
-    public void setMovieId(int movieId) {
+    public void setMovieId(Long movieId) {
         this.movieId = movieId;
     }
 
@@ -79,27 +76,27 @@ public class Movies implements Serializable {
         this.releaseYear = releaseYear;
     }
 
-    public Date getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdateAt() {
+    public LocalDateTime getUpdateAt() {
         return updateAt;
     }
 
-    public void setUpdateAt(Date updateAt) {
+    public void setUpdateAt(LocalDateTime updateAt) {
         this.updateAt = updateAt;
     }
 
     public User getUser() {
-        return user;
+        return users;
     }
 
     public void setUser(User user) {
-        this.user = user;
+        this.users = user;
     }
 }

@@ -1,6 +1,5 @@
 package com.encora.movieapi.controllers;
 
-import com.encora.movieapi.Entities.Ratings;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,11 +7,8 @@ import com.encora.movieapi.Entities.Movies;
 import com.encora.movieapi.Entities.User;
 import com.encora.movieapi.repositories.MoviesRepository;
 import com.encora.movieapi.repositories.UserRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,19 +30,19 @@ public class MoviesController{
     //Create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
-    public Movies createMovie(@RequestBody String str) throws JsonMappingException, JsonProcessingException{
-        ObjectMapper mapper = new ObjectMapper();
-        JsonNode node = mapper.readTree(str);
-        User user = mapper.convertValue(node.get("user"), User.class);
-        Movies movie = mapper.convertValue(node.get("movies"), Movies.class);
-        movie.setUser(user);
-        userRepository.save(user);
+    public Movies createMovie(@RequestBody Movies movie){
+        moviesRepository.save(movie);
+        movie.setCreatedAt(LocalDateTime.now());
+        movie.setUpdateAt(LocalDateTime.now());
+        Optional<User> userOptional = userRepository.findById(Long.valueOf(1));
+        User user = userOptional.get();
+        moviesRepository.addUser(user);
         return moviesRepository.save(movie);
     }
 
     //Update
     @PutMapping("update/{id}")
-    public ResponseEntity<Movies> updateMovie(@PathVariable("id") int id, @RequestBody Movies movies){
+    public ResponseEntity<Movies> updateMovie(@PathVariable("id") Long id, @RequestBody Movies movies){
         Optional<Movies> moviesOptional = moviesRepository.findById(id);
         if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
 
@@ -58,7 +54,7 @@ public class MoviesController{
 
 
     @DeleteMapping("/delete/{id}")
-    public void deleteMovie(@PathVariable int id){
+    public void deleteMovie(@PathVariable Long id){
         moviesRepository.deleteById(id);
     }
 
@@ -70,7 +66,7 @@ public class MoviesController{
 
     //ReadByID
     @GetMapping("readId/{id}")
-    public Optional<Movies> getById(@PathVariable("id") int id){
+    public Optional<Movies> getById(@PathVariable("id") Long id){
         return moviesRepository.findById(id);
     }
 }

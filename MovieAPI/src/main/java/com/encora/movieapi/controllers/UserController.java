@@ -1,12 +1,14 @@
 package com.encora.movieapi.controllers;
 
 import com.encora.movieapi.Entities.User;
-import com.encora.movieapi.repositories.UserRepository;
+import com.encora.movieapi.services.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,48 +16,54 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserRepository userRepository;
+    @Autowired
+    private UserService userService;
 
-    public UserController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
 
     //Create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User user){
-        return userRepository.save(user);
+        return userService.save(user);
     }
 
     //Update
     @PutMapping("/update/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable("id") int id, @RequestBody User user){
-        Optional<User> userOptional = userRepository.findById(id);
+    public ResponseEntity<User> updateUser(@PathVariable("id") Long id, @RequestBody User user){
+        Optional<User> userOptional = userService.findById(id);
         if(userOptional.isEmpty()) return ResponseEntity.notFound().build();
 
         user.setUserId(id);
-        userRepository.save(user);
+        userService.save(user);
 
         return ResponseEntity.noContent().build();
     }
 
-    //Delete
+    /*Delete
     @DeleteMapping("/delete/{id}")
     public void deleteUser(@PathVariable int id){
-        userRepository.deleteById(id);
-    }
+        userService.deleteById(id);
+    }*/
 
     //ReadAll
     @GetMapping("/allusers")
-    public List<User> getAllUser(){
-        return userRepository.findAll();
+    public String getAllUser(Model model){
+        List<User> users = userService.getAll();
+        model.addAttribute("users", users);
+        for (User user : users) {
+            model.addAttribute("movies", user.getMoviesList());
+        }
+        return "userProfiles";
     }
 
     //ReadById
 
     @GetMapping("readId/{id}")
-    public User findByIdUser(@PathVariable int id){
-        Optional<User> user = userRepository.findById(id);
+    public User findByIdUser(@PathVariable Long id){
+        Optional<User> user = userService.findById(id);
         return user.get();
     }
 

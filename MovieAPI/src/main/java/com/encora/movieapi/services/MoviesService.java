@@ -15,7 +15,7 @@ public class MoviesService {
     @Autowired
     private MoviesRepository moviesRepository;
 
-    public Optional<Movies> getById(int ID){
+    public Optional<Movies> getById(Long ID){
         return moviesRepository.findById(ID);
     }
 

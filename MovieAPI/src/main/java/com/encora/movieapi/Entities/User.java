@@ -3,15 +3,14 @@ package com.encora.movieapi.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-//import java.util.List;
 
 @Entity
 @Table(name = "users")
 public class User implements Serializable {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "users_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int userId;
+    private Long userId;
     @Column(
             name = "username",
             unique = true,
@@ -30,22 +29,22 @@ public class User implements Serializable {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
     private List<Ratings> ratingsList;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Movies> moviesList;
 
 
     public User (){ }
-    public User(int userId, String username, String user_email) {
+    public User(Long userId, String username, String user_email) {
         this.userId = userId;
         this.username = username;
         this.user_email = user_email;
     }
 
-    public int getUserId() {
-        return userId;
+    public Long getUserId() {
+        return this.userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Long userId) {
         this.userId = userId;
     }
 
@@ -85,7 +84,7 @@ public class User implements Serializable {
         return moviesList;
     }
 
-    public void setMoviesList(List<Movies> moviesList) {
-        this.moviesList = moviesList;
+    public void setMovie(Movies movie) {
+        this.moviesList.add(movie);
     }
 }
