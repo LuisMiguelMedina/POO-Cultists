@@ -4,6 +4,7 @@ package com.encora.movieapi.Entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Entity
@@ -31,8 +32,8 @@ public class Movies implements Serializable {
 
     //Relationships
 
-    /*@OneToMany(fetch = FetchType.LAZY, mappedBy = "movie", cascade = CascadeType.ALL)
-    private List<Ratings> ratingsList;*/
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Ratings> ratingsList;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = User.class)
     @JoinColumn(name = "users")

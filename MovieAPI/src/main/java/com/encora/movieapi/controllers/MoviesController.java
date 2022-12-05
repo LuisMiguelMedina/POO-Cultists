@@ -51,10 +51,11 @@ public class MoviesController{
     public ResponseEntity<Movies> updateMovie(@PathVariable("id") Long id, @RequestBody Movies movies){
         Optional<Movies> moviesOptional = moviesService.getById(id);
         if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
-
-        movies.setMovieId(id);
-        moviesService.save(movies);
-
+        Movies movieOptional = moviesOptional.get();
+        movieOptional.setName(movies.getName());
+        movieOptional.setreleaseYear(movies.getreleaseYear());
+        movieOptional.setUpdateAt(LocalDateTime.now());
+        moviesService.save(movieOptional);
         return ResponseEntity.noContent().build();
     }
 
