@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.encora.movieapi.Entities.Movies;
+import com.encora.movieapi.Entities.User;
 import com.encora.movieapi.repositories.MoviesRepository;
 
 @Service
@@ -19,6 +20,10 @@ public class MoviesService {
         return moviesRepository.findById(ID);
     }
 
+    public void addUser(User user){
+        moviesRepository.addUser(user);
+    }
+
     public List<Movies> getAll(){
         return moviesRepository.findAll();
     }
@@ -26,5 +31,9 @@ public class MoviesService {
     @Transactional
     public Movies save(Movies movie){
         return moviesRepository.save(movie);
+    }
+
+    public void deleteMovie(Long id){
+        moviesRepository.deleteById(id);
     }
 }

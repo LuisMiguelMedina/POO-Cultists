@@ -2,7 +2,7 @@ package com.encora.movieapi.controllers;
 
 
 import com.encora.movieapi.Entities.Ratings;
-import com.encora.movieapi.repositories.RaitingsRepository;
+import com.encora.movieapi.repositories.RatingsRepository;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +14,9 @@ import java.util.Optional;
 @RequestMapping("/ratings")
 public class RaitingsController {
 
-    private final RaitingsRepository raitingsRepository;
+    private final RatingsRepository raitingsRepository;
 
-    public RaitingsController(RaitingsRepository raitingsRepository) {
+    public RaitingsController(RatingsRepository raitingsRepository) {
         this.raitingsRepository = raitingsRepository;
     }
 
@@ -29,7 +29,7 @@ public class RaitingsController {
 
     //Update
     @PutMapping("update/{id}")
-    public ResponseEntity<Ratings> updateRating(@PathVariable("id") int id, @RequestBody Ratings ratings){
+    public ResponseEntity<Ratings> updateRating(@PathVariable("id") Long id, @RequestBody Ratings ratings){
         Optional<Ratings> ratingsOptional = raitingsRepository.findById(id);
         if(ratingsOptional.isEmpty()) return ResponseEntity.notFound().build();
 
@@ -40,7 +40,7 @@ public class RaitingsController {
     }
     //Delete
     @DeleteMapping("/delete/{id}")
-    public void deleteRating(@PathVariable int id){
+    public void deleteRating(@PathVariable Long id){
         raitingsRepository.deleteById(id);
     }
 
@@ -53,7 +53,7 @@ public class RaitingsController {
     //ReadById
 
     @GetMapping("readId/{id}")
-    public Ratings findByIdUser(@PathVariable int id){
+    public Ratings findByIdUser(@PathVariable Long id){
         Optional<Ratings> ratings = raitingsRepository.findById(id);
         return ratings.get();
     }

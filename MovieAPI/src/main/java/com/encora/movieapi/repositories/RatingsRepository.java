@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.encora.movieapi.Entities.Ratings;
 
 @Repository
-public interface RaitingsRepository extends JpaRepository<Ratings, Integer> {
+public interface RatingsRepository extends JpaRepository<Ratings, Long> {
 }

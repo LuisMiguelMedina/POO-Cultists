@@ -6,7 +6,6 @@ import com.encora.movieapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -42,21 +41,16 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 
-    /*Delete
+    //Delete
     @DeleteMapping("/delete/{id}")
-    public void deleteUser(@PathVariable int id){
-        userService.deleteById(id);
-    }*/
+    public void deleteUser(@PathVariable Long id){
+        userService.deleteUser(id);
+    }
 
     //ReadAll
     @GetMapping("/allusers")
-    public String getAllUser(Model model){
-        List<User> users = userService.getAll();
-        model.addAttribute("users", users);
-        for (User user : users) {
-            model.addAttribute("movies", user.getMoviesList());
-        }
-        return "userProfiles";
+    public List<User> getAllUser(){
+        return userService.getAll();
     }
 
     //ReadById

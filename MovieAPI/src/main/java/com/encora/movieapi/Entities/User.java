@@ -26,10 +26,10 @@ public class User implements Serializable {
 
 
     //Relationships
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ratings> ratingsList;
 
-    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Movies> moviesList;
 
 
@@ -85,6 +85,9 @@ public class User implements Serializable {
     }
 
     public void setMovie(Movies movie) {
-        this.moviesList.add(movie);
+        this.moviesList.clear();
+        if(movie != null){
+            this.moviesList.add(movie);
+        }
     }
 }
