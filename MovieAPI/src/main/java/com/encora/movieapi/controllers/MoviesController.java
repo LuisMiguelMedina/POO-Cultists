@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.*;
 
 import com.encora.movieapi.Entities.Movies;
 import com.encora.movieapi.Entities.User;
-import com.encora.movieapi.repositories.MoviesRepository;
-import com.encora.movieapi.repositories.UserRepository;
+import com.encora.movieapi.services.MoviesService;
+import com.encora.movieapi.services.UserService;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -19,25 +19,25 @@ import org.springframework.http.HttpStatus;
 @RequestMapping("/movies")
 public class MoviesController{
     
-    private final MoviesRepository moviesRepository;
-    private final UserRepository userRepository;
+    private final MoviesService moviesService;
+    private final UserService userService;
 
-    public MoviesController(MoviesRepository moviesRepository, UserRepository userRepository){
-        this.moviesRepository = moviesRepository;
-        this.userRepository = userRepository;
+    public MoviesController(MoviesService moviesService, UserService userService){
+        this.moviesService = moviesService;
+        this.userService = userService;
     }
 
     //Create
     @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Movies createMovie(@RequestBody Movies movie){
-        moviesRepository.save(movie);
+        moviesService.save(movie);
         movie.setCreatedAt(LocalDateTime.now());
         movie.setUpdateAt(LocalDateTime.now());
-        Optional<User> userOptional = userRepository.findById(Long.valueOf(1));
+        Optional<User> userOptional = userService.findById(Long.valueOf(1));
         User user = userOptional.get();
-        moviesRepository.addUser(user);
-        return moviesRepository.save(movie);
+        moviesService.addUser(user);
+        return moviesService.save(movie);
     }
 
     //Update
@@ -49,11 +49,11 @@ public class MoviesController{
      ***************************/
     @PutMapping("update/{id}")
     public ResponseEntity<Movies> updateMovie(@PathVariable("id") Long id, @RequestBody Movies movies){
-        Optional<Movies> moviesOptional = moviesRepository.findById(id);
+        Optional<Movies> moviesOptional = moviesService.getById(id);
         if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
 
         movies.setMovieId(id);
-        moviesRepository.save(movies);
+        moviesService.save(movies);
 
         return ResponseEntity.noContent().build();
     }
@@ -61,18 +61,18 @@ public class MoviesController{
 
     @DeleteMapping("/delete/{id}")
     public void deleteMovie(@PathVariable Long id){
-        moviesRepository.deleteById(id);
+        moviesService.deleteMovie(id);
     }
 
     //ReadAll
     @GetMapping("/allMovies")
     public List<Movies> getAllMovies(){
-        return moviesRepository.findAll();
+        return moviesService.getAll();
     }
 
     //ReadByID
     @GetMapping("readId/{id}")
     public Optional<Movies> getById(@PathVariable("id") Long id){
-        return moviesRepository.findById(id);
+        return moviesService.getById(id);
     }
 }
