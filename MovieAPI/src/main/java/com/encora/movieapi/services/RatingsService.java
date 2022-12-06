@@ -1,6 +1,8 @@
 package com.encora.movieapi.services;
 
+import com.encora.movieapi.Entities.Movies;
 import com.encora.movieapi.Entities.Ratings;
+import com.encora.movieapi.Entities.User;
 import com.encora.movieapi.repositories.RatingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,13 @@ public class RatingsService {
 
     public void deleteRating(Long id){
         ratingsRepository.deleteById(id);
+    }
+
+    public void addMovie(Movies movie, Long id){
+        ratingsRepository.addMovie(movie, id);
+    }
+
+    public void addUser(User user, Long id) {
+        ratingsRepository.addUser(user, id);
     }
 }

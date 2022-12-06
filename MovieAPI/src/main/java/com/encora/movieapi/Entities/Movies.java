@@ -13,7 +13,7 @@ public class Movies implements Serializable {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.AUTO
+        strategy = GenerationType.AUTO
     )
     private Long movieId;
 

@@ -20,6 +20,10 @@ public class MoviesService {
         return moviesRepository.findById(ID);
     }
 
+    public Movies getMovie(String name){
+        return moviesRepository.getMovie(name);
+    }
+
     public void addUser(User user){
         moviesRepository.addUser(user);
     }

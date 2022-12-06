@@ -2,28 +2,22 @@ package com.encora.movieapi.Entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "ratings")
 public class Ratings implements Serializable {
     @Id
-    @Column(
-            name = "raiting_id",
-            nullable = false,
-            unique = true
+    @GeneratedValue(
+            strategy = GenerationType.AUTO
     )
-    private Long  raintingId;
+    private Long  ratingId;
 
-    @Column(
-            name = "time",
-            nullable = false
-    )
-    private Time time;
+    @Column(name = "time" )
+    private LocalDateTime time;
 
     @Column(
             name = "summary",
-            nullable = false,
             columnDefinition = "TEXT"
     )
     private String summary;
@@ -48,26 +42,26 @@ public class Ratings implements Serializable {
     //Constructors
     public Ratings() {}
 
-    public Ratings(Long raintingId, Time time, String summary, String review) {
-        this.raintingId = raintingId;
+    public Ratings(Long raintingId, LocalDateTime time, String summary, String review) {
+        this.ratingId = raintingId;
         this.time = time;
         this.summary = summary;
         this.review = review;
     }
 
-    public Long getRaintingId() {
-        return raintingId;
+    public Long getRatingId() {
+        return ratingId;
     }
 
     public void setRaintingId(Long raintingId) {
-        this.raintingId = raintingId;
+        this.ratingId = raintingId;
     }
 
-    public Time getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 

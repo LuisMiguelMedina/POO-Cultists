@@ -18,4 +18,7 @@ public interface MoviesRepository extends JpaRepository<Movies, Long> {
     @Modifying
     @Query(value = "update movies set users =:users", nativeQuery=true)
     void addUser(@Param("users")User user);
+
+    @Query(value = "select * from movies where movies.movie_name =:name", nativeQuery = true)
+    Movies getMovie(@Param("name")String name);
 }
