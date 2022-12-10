@@ -14,28 +14,6 @@
           </set>
         </option>
       </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/developer" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../gradle-6.9.3" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/developer" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/movieproject" />
-        <option name="gradleHome" value="$PROJECT_DIR$/../../gradle-6.9.3" />
-        <option name="gradleJvm" value="#JAVA_HOME" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/movieproject" />
-          </set>
-        </option>
-      </GradleProjectSettings>
     </option>
   </component>
 </project>
