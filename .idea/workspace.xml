@@ -6,9 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d35e8fa9-f635-4505-ae3a-b0fbcb5cac5d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieAPI/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +17,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ExternalProjectsData">
-    <projectState path="$PROJECT_DIR$/MovieAPI" />
+    <projectState path="$PROJECT_DIR$/MovieAPI">
+      <ProjectState />
+    </projectState>
   </component>
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
@@ -54,21 +57,34 @@
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;1283e061d62834ff8d23e016a8f8485b&quot;
+    &quot;spring.configuration.checksum&quot;: &quot;a49d58f62e154eb1518487d4666f986e&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\luism\OneDrive\Documentos\GitHub\POO-Cultists\MovieAPI\.gradle\7.5.1" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MovieApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="MovieAPI.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.encora.movieapi.MovieApiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringBeansView">
@@ -86,6 +102,9 @@
       <workItem from="1670631194320" duration="17000" />
       <workItem from="1670631224090" duration="1181000" />
       <workItem from="1670632562886" duration="262000" />
+      <workItem from="1670636494619" duration="1287000" />
+      <workItem from="1670712140299" duration="2035000" />
+      <workItem from="1670732384781" duration="724000" />
     </task>
     <servers />
   </component>
