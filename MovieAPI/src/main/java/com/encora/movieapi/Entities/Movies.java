@@ -23,7 +23,6 @@ public class Movies implements Serializable {
     @Column(name = "release_year")
     private int releaseYear;
 
-
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
@@ -39,14 +38,9 @@ public class Movies implements Serializable {
     @JoinColumn(name = "users")
     private User users;
 
-
-
-
     public Movies() {
 
     }
-
-    //Createdad lo quite porque al parecer con las anotaciones hará ese trabajo
     public Movies(Long movieId, String name, int releaseYear) {
         this.movieId = movieId;
         this.movie_name = name;

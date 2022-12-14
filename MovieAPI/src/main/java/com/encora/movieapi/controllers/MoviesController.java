@@ -28,7 +28,7 @@ public class MoviesController{
     }
 
     //Create
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Movies createMovie(@RequestBody Movies movie){
         moviesService.save(movie);
@@ -41,7 +41,7 @@ public class MoviesController{
     }
 
     //Update
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Movies> updateMovie(@PathVariable("id") Long id, @RequestBody Movies movies){
         Optional<Movies> moviesOptional = moviesService.getById(id);
         if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
@@ -54,19 +54,19 @@ public class MoviesController{
     }
 
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteMovie(@PathVariable Long id){
         moviesService.deleteMovie(id);
     }
 
     //ReadAll
-    @GetMapping
+    @GetMapping("/find/all")
     public List<Movies> getAllMovies(){
         return moviesService.getAll();
     }
 
     //ReadByID
-    @GetMapping("{id}")
+    @GetMapping("/find/{id}")
     public Optional<Movies> getById(@PathVariable("id") Long id){
         return moviesService.getById(id);
     }
