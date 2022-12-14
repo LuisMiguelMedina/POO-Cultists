@@ -31,7 +31,7 @@ public class RatingsController {
     }
 
     //Create
-    @PostMapping
+    @PostMapping("/create")
     @ResponseStatus(HttpStatus.CREATED)
     public Ratings createRating(@RequestBody RatingCreation ratingCreator){
         Ratings rating = ratingCreator.getRating();
@@ -47,7 +47,7 @@ public class RatingsController {
     }
 
     //Update
-    @PutMapping("{id}")
+    @PutMapping("/update/{id}")
     public ResponseEntity<Ratings> updateRating(@PathVariable("id") Long id, @RequestBody Ratings ratings){
         Optional<Ratings> ratingsOptional = ratingsService.findById(id);
         if(ratingsOptional.isEmpty()) return ResponseEntity.notFound().build();
@@ -60,7 +60,7 @@ public class RatingsController {
         return ResponseEntity.noContent().build();
     }
     //Delete
-    @DeleteMapping("{id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteRating(@PathVariable Long id){
         ratingsService.deleteRating(id);
     }
@@ -73,7 +73,7 @@ public class RatingsController {
 
     //ReadById
 
-    @GetMapping("{id}")
+    @GetMapping("/find/{id}")
     public Ratings findByIdUser(@PathVariable Long id){
         Optional<Ratings> ratings = ratingsService.findById(id);
         return ratings.get();
