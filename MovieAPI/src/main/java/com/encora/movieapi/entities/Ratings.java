@@ -35,9 +35,9 @@ public class Ratings implements Serializable {
     @JoinColumn(name = "movies_id")
     private Movies movie;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = Users.class)
     @JoinColumn(name = "user_id")
-    private User user;
+    private Users user;
 
     //Constructors
     public Ratings() {}
@@ -89,11 +89,11 @@ public class Ratings implements Serializable {
         this.movie = movie;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 }

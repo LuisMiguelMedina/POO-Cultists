@@ -5,10 +5,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<Users, Long> {
     @Query(value = "select * from users where users.username =:username", nativeQuery = true)
-    User getUser(@Param("username")String username);
+    Users getUser(@Param("username")String username);
 }

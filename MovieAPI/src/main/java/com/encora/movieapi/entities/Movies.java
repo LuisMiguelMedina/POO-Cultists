@@ -35,9 +35,9 @@ public class Movies implements Serializable {
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Ratings> ratingsList;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = User.class)
+    @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = Users.class)
     @JoinColumn(name = "user_id")
-    private User users;
+    private Users users;
 
 
 
@@ -93,11 +93,11 @@ public class Movies implements Serializable {
         this.updateAt = updateAt;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return users;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.users = user;
     }
 }

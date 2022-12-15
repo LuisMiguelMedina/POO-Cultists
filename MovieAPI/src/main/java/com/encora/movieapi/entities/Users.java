@@ -6,7 +6,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-public class User implements Serializable {
+public class Users implements Serializable {
     @Id
     @Column(name = "users_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -33,8 +33,8 @@ public class User implements Serializable {
     private List<Movies> moviesList;
 
 
-    public User (){ }
-    public User(Long userId, String username, String user_email) {
+    public Users (){ }
+    public Users(Long userId, String username, String user_email) {
         this.userId = userId;
         this.username = username;
         this.userEmail = user_email;

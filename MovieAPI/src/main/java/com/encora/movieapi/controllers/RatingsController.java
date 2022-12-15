@@ -1,8 +1,9 @@
+
 package com.encora.movieapi.controllers;
 
 import com.encora.movieapi.entities.Movies;
 import com.encora.movieapi.entities.Ratings;
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 import com.encora.movieapi.services.MoviesService;
 import com.encora.movieapi.services.RatingsService;
 import com.encora.movieapi.services.UserService;
@@ -36,9 +37,9 @@ public class RatingsController {
     public Ratings createRating(@RequestBody RatingCreation ratingCreator){
         Ratings rating = ratingCreator.getRating();
         Movies movie = ratingCreator.getMovie();
-        User user = ratingCreator.getUser();
+        Users user = ratingCreator.getUser();
         Movies optionalMovie = moviesService.getMovie(movie.getName());
-        User optionalUser = userService.getUser(user.getUsername());
+        Users optionalUser = userService.getUser(user.getUsername());
         ratingsService.save(rating);
         rating.setTime(LocalDateTime.now());
         ratingsService.addMovie(optionalMovie, rating.getRatingId());

@@ -2,7 +2,7 @@ package com.encora.movieapi.services;
 
 import com.encora.movieapi.entities.Movies;
 import com.encora.movieapi.entities.Ratings;
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 import com.encora.movieapi.repositories.RatingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +37,7 @@ public class RatingsService {
         ratingsRepository.addMovie(movie, id);
     }
 
-    public void addUser(User user, Long id) {
+    public void addUser(Users user, Long id) {
         ratingsRepository.addUser(user, id);
     }
 }

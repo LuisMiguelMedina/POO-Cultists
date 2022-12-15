@@ -4,9 +4,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.encora.movieapi.entities.Movies;
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 import com.encora.movieapi.services.MoviesService;
 import com.encora.movieapi.services.UserService;
+import com.encora.movieapi.utilities.MovieCreation;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -30,12 +31,14 @@ public class MoviesController{
     //Create
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Movies createMovie(@RequestBody Movies movie){
+    public Movies createMovie(@RequestBody MovieCreation movieCreator){
+        Movies movie = movieCreator.getMovie();
+        Users temporaryUser = movieCreator.getUser();
+
         moviesService.save(movie);
         movie.setCreatedAt(LocalDateTime.now());
         movie.setUpdateAt(LocalDateTime.now());
-        Optional<User> userOptional = userService.findById(Long.valueOf(1));
-        User user = userOptional.get();
+        Users user = userService.getUser(temporaryUser.getUsername());
         moviesService.addUser(user);
         return moviesService.save(movie);
     }

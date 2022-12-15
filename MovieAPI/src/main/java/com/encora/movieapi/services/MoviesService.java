@@ -3,12 +3,11 @@ package com.encora.movieapi.services;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.encora.movieapi.entities.Movies;
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 import com.encora.movieapi.repositories.MoviesRepository;
 
 @Service
@@ -28,7 +27,7 @@ public class MoviesService {
         return moviesRepository.getMovie(name);
     }
 
-    public void addUser(User user){
+    public void addUser(Users user){
         moviesRepository.addUser(user);
     }
 

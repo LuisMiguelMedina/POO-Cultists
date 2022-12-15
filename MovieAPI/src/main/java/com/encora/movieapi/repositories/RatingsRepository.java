@@ -1,3 +1,4 @@
+
 package com.encora.movieapi.repositories;
 
 import javax.transaction.Transactional;
@@ -10,14 +11,14 @@ import org.springframework.stereotype.Repository;
 
 import com.encora.movieapi.entities.Movies;
 import com.encora.movieapi.entities.Ratings;
-import com.encora.movieapi.entities.User;
+import com.encora.movieapi.entities.Users;
 
 @Repository
 public interface RatingsRepository extends JpaRepository<Ratings, Long> {
     @Transactional
     @Modifying
     @Query(value = "update ratings set user_id =:users where rating_id =:id", nativeQuery=true)
-    void addUser(@Param("users")User user, @Param("id")Long id);
+    void addUser(@Param("users")Users user, @Param("id")Long id);
     
     @Transactional
     @Modifying
