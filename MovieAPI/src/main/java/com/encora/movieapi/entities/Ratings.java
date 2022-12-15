@@ -1,4 +1,4 @@
-package com.encora.movieapi.Entities;
+package com.encora.movieapi.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;

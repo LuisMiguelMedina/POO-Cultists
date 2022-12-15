@@ -1,4 +1,4 @@
-package com.encora.movieapi.Entities;
+package com.encora.movieapi.entities;
 
 
 import javax.persistence.*;
@@ -18,7 +18,7 @@ public class Movies implements Serializable {
     private Long movieId;
 
     @Column(name = "movie_name")
-    private String movie_name;
+    private String movieName;
 
     @Column(name = "release_year")
     private int releaseYear;
@@ -36,7 +36,7 @@ public class Movies implements Serializable {
     private List<Ratings> ratingsList;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade ={CascadeType.PERSIST, CascadeType.REFRESH, CascadeType.MERGE}, targetEntity = User.class)
-    @JoinColumn(name = "users")
+    @JoinColumn(name = "user_id")
     private User users;
 
 
@@ -49,7 +49,7 @@ public class Movies implements Serializable {
     //Createdad lo quite porque al parecer con las anotaciones hará ese trabajo
     public Movies(Long movieId, String name, int releaseYear) {
         this.movieId = movieId;
-        this.movie_name = name;
+        this.movieName = name;
         this.releaseYear = releaseYear;
     }
 
@@ -62,18 +62,18 @@ public class Movies implements Serializable {
     }
 
     public String getName() {
-        return movie_name;
+        return movieName;
     }
 
     public void setName(String name) {
-        this.movie_name = name;
+        this.movieName = name;
     }
 
-    public int getreleaseYear() {
+    public int getReleaseYear() {
         return releaseYear;
     }
 
-    public void setreleaseYear(int releaseYear) {
+    public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
     }
 

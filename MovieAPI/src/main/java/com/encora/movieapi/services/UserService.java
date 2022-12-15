@@ -1,6 +1,6 @@
 package com.encora.movieapi.services;
 
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.encora.movieapi.controllers;
 
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.services.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +15,22 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
     //Create
-    @PostMapping("/create")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public User createUser(@RequestBody User user){
         return userService.save(user);
     }
 
     //Update
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") Long id, @RequestBody User user){
         Optional<User> userOptional = userService.findById(id);
         if(userOptional.isEmpty()) return ResponseEntity.notFound().build();
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     //Delete
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
     }
@@ -55,7 +55,7 @@ public class UserController {
 
     //ReadById
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public User findByIdUser(@PathVariable Long id){
         Optional<User> user = userService.findById(id);
         return user.get();

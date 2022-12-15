@@ -3,8 +3,8 @@ package com.encora.movieapi.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.services.MoviesService;
 import com.encora.movieapi.services.UserService;
 
@@ -28,7 +28,7 @@ public class MoviesController{
     }
 
     //Create
-    @PostMapping("/create")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Movies createMovie(@RequestBody Movies movie){
         moviesService.save(movie);
@@ -41,20 +41,20 @@ public class MoviesController{
     }
 
     //Update
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Movies> updateMovie(@PathVariable("id") Long id, @RequestBody Movies movies){
         Optional<Movies> moviesOptional = moviesService.getById(id);
         if(moviesOptional.isEmpty()) return ResponseEntity.notFound().build();
         Movies movieOptional = moviesOptional.get();
         movieOptional.setName(movies.getName());
-        movieOptional.setreleaseYear(movies.getreleaseYear());
+        movieOptional.setReleaseYear(movies.getReleaseYear());
         movieOptional.setUpdateAt(LocalDateTime.now());
         moviesService.save(movieOptional);
         return ResponseEntity.noContent().build();
     }
 
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteMovie(@PathVariable Long id){
         moviesService.deleteMovie(id);
     }
@@ -66,7 +66,7 @@ public class MoviesController{
     }
 
     //ReadByID
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public Optional<Movies> getById(@PathVariable("id") Long id){
         return moviesService.getById(id);
     }

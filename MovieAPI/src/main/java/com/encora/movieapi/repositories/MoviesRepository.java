@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.User;
 
 
 @Repository

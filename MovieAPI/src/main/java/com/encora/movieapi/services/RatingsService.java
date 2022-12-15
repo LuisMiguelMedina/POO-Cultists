@@ -1,8 +1,8 @@
 package com.encora.movieapi.services;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.Ratings;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.Ratings;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.repositories.RatingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

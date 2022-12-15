@@ -1,8 +1,8 @@
 package com.encora.movieapi.utilities;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.Ratings;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.Ratings;
+import com.encora.movieapi.entities.User;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class RatingCreation {

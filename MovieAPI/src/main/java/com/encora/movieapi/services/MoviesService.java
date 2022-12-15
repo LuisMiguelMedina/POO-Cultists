@@ -7,14 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.repositories.MoviesRepository;
 
 @Service
 public class MoviesService {
-    @Autowired
-    private MoviesRepository moviesRepository;
+
+    private final MoviesRepository moviesRepository;
+
+    public MoviesService(MoviesRepository moviesRepository) {
+        this.moviesRepository = moviesRepository;
+    }
 
     public Optional<Movies> getById(Long ID){
         return moviesRepository.findById(ID);

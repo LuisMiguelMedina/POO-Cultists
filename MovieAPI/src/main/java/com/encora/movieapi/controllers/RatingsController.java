@@ -1,8 +1,8 @@
 package com.encora.movieapi.controllers;
 
-import com.encora.movieapi.Entities.Movies;
-import com.encora.movieapi.Entities.Ratings;
-import com.encora.movieapi.Entities.User;
+import com.encora.movieapi.entities.Movies;
+import com.encora.movieapi.entities.Ratings;
+import com.encora.movieapi.entities.User;
 import com.encora.movieapi.services.MoviesService;
 import com.encora.movieapi.services.RatingsService;
 import com.encora.movieapi.services.UserService;
@@ -31,7 +31,7 @@ public class RatingsController {
     }
 
     //Create
-    @PostMapping("/create")
+    @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Ratings createRating(@RequestBody RatingCreation ratingCreator){
         Ratings rating = ratingCreator.getRating();
@@ -47,7 +47,7 @@ public class RatingsController {
     }
 
     //Update
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public ResponseEntity<Ratings> updateRating(@PathVariable("id") Long id, @RequestBody Ratings ratings){
         Optional<Ratings> ratingsOptional = ratingsService.findById(id);
         if(ratingsOptional.isEmpty()) return ResponseEntity.notFound().build();
@@ -60,7 +60,7 @@ public class RatingsController {
         return ResponseEntity.noContent().build();
     }
     //Delete
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public void deleteRating(@PathVariable Long id){
         ratingsService.deleteRating(id);
     }
@@ -73,7 +73,7 @@ public class RatingsController {
 
     //ReadById
 
-    @GetMapping("/find/{id}")
+    @GetMapping("/{id}")
     public Ratings findByIdUser(@PathVariable Long id){
         Optional<Ratings> ratings = ratingsService.findById(id);
         return ratings.get();

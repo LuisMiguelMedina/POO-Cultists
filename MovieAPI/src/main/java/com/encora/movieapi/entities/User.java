@@ -1,4 +1,4 @@
-package com.encora.movieapi.Entities;
+package com.encora.movieapi.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -22,7 +22,7 @@ public class User implements Serializable {
             unique = true,
             nullable = false
     )
-    private String user_email;
+    private String userEmail;
 
 
     //Relationships
@@ -37,7 +37,7 @@ public class User implements Serializable {
     public User(Long userId, String username, String user_email) {
         this.userId = userId;
         this.username = username;
-        this.user_email = user_email;
+        this.userEmail = user_email;
     }
 
     public Long getUserId() {
@@ -57,19 +57,19 @@ public class User implements Serializable {
     }
 
     public String getEmail() {
-        return user_email;
+        return userEmail;
     }
 
     public void setEmail(String email) {
-        this.user_email = email;
+        this.userEmail = email;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     public List<Ratings> getRatingsList() {
