@@ -13,9 +13,6 @@ public class Ratings implements Serializable {
     )
     private Long  ratingId;
 
-    @Column(name = "time" )
-    private LocalDateTime time;
-
     @Column(
             name = "summary",
             columnDefinition = "TEXT"
@@ -28,6 +25,12 @@ public class Ratings implements Serializable {
             columnDefinition = "TEXT"
     )
     private String review;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @Column(name = "update_at")
+    private LocalDateTime updateAt;
 
     //Relationships
 
@@ -42,9 +45,8 @@ public class Ratings implements Serializable {
     //Constructors
     public Ratings() {}
 
-    public Ratings(Long raintingId, LocalDateTime time, String summary, String review) {
+    public Ratings(Long raintingId, String summary, String review) {
         this.ratingId = raintingId;
-        this.time = time;
         this.summary = summary;
         this.review = review;
     }
@@ -57,13 +59,6 @@ public class Ratings implements Serializable {
         this.ratingId = raintingId;
     }
 
-    public LocalDateTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalDateTime time) {
-        this.time = time;
-    }
 
     public String getSummary() {
         return summary;
@@ -95,5 +90,21 @@ public class Ratings implements Serializable {
 
     public void setUser(Users user) {
         this.user = user;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdateAt() {
+        return updateAt;
+    }
+
+    public void setUpdateAt(LocalDateTime updateAt) {
+        this.updateAt = updateAt;
     }
 }

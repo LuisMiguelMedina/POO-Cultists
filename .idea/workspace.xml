@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d35e8fa9-f635-4505-ae3a-b0fbcb5cac5d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/.gradle/7.5.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/.gradle/7.5.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
@@ -16,7 +15,7 @@
       <change beforePath="$PROJECT_DIR$/MovieAPI/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/Movies.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/Movies.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/Ratings.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/Ratings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/Entities/User.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/MoviesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/MoviesController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/RatingsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/RatingsController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/controllers/UserController.class" afterDir="false" />
@@ -27,32 +26,13 @@
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/services/RatingsService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/services/RatingsService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/services/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/services/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/utilities/RatingCreation.class" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/classes/java/main/com/encora/movieapi/utilities/RatingCreation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/classes/java/test/com/encora/movieapi/MovieApiApplicationTests.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/classes/com.encora.movieapi.MovieApiApplicationTests.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/css/base-style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/js/report.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/reports/tests/test/packages/com.encora.movieapi.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/test-results/test/TEST-com.encora.movieapi.MovieApiApplicationTests.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/test-results/test/binary/output.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/test-results/test/binary/output.bin.idx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/test-results/test/binary/results.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/MoviesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/MoviesController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/RatingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/RatingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Movies.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Movies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Ratings.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Ratings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/entities/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/MoviesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/MoviesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/RatingsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/RatingsRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/MoviesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/MoviesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/RatingsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/RatingsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/utilities/RatingCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/java/com/encora/movieapi/utilities/RatingCreation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MovieAPI/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/MovieAPI/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,6 +147,7 @@
       <workItem from="1670784278054" duration="231000" />
       <workItem from="1671043607889" duration="2872000" />
       <workItem from="1671126595359" duration="3642000" />
+      <workItem from="1671139900315" duration="4641000" />
     </task>
     <servers />
   </component>

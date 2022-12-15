@@ -16,7 +16,7 @@ import com.encora.movieapi.entities.Users;
 public interface MoviesRepository extends JpaRepository<Movies, Long> {
     @Transactional
     @Modifying
-    @Query(value = "update movies set users =:users", nativeQuery=true)
+    @Query(value = "update movies set user_id =:users", nativeQuery=true)
     void addUser(@Param("users")Users user);
 
     @Query(value = "select * from movies where movies.movie_name =:name", nativeQuery = true)
