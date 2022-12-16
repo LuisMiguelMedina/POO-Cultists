@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,9 +25,7 @@ public class UserController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Users createUser(@RequestBody Users user){
-        user.setCreatedAt(LocalDateTime.now());
-        user.setUpdateAt(LocalDateTime.now());
-        return userService.save(user);
+        return userService.createUser(user);
     }
 
     //Update
@@ -36,9 +33,8 @@ public class UserController {
     public ResponseEntity<Users> updateUser(@PathVariable("id") Long id, @RequestBody Users user){
         Optional<Users> userOptional = userService.findById(id);
         if(userOptional.isEmpty()) return ResponseEntity.notFound().build();
-        user.setUpdateAt(LocalDateTime.now());
         user.setUserId(id);
-        userService.save(user);
+        userService.updateUser(user);
 
         return ResponseEntity.noContent().build();
     }

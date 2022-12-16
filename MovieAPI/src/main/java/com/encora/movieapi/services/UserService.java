@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +26,15 @@ public class UserService {
     }
 
     @Transactional
-    public Users save(Users user){
+    public Users createUser(Users user){
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdateAt(LocalDateTime.now());
+        return userRepository.save(user);
+    }
+
+    @Transactional
+    public Users updateUser(Users user){
+        user.setUpdateAt(LocalDateTime.now());
         return userRepository.save(user);
     }
 

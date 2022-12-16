@@ -27,7 +27,7 @@ public class RegisterController {
 
     @PostMapping("/register")
     public String createNewUser(@ModelAttribute Users user) {
-        userService.save(user);
+        userService.createUser(user);
         return "redirect:/";
     }
     
