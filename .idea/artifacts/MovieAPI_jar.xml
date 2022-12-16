@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="MovieAPI:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/MovieAPI_jar</output-path>
+    <root id="archive" name="MovieAPI.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/MovieAPI/target/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>
