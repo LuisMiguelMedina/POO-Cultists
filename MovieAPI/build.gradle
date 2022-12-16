@@ -35,7 +35,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf:2.7.6'
 
 }
+bootJar {
+    enabled = false
+}
 
-tasks.named('test') {
-    useJUnitPlatform()
+jar {
+    enabled = true
 }
