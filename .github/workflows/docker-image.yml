@@ -16,4 +16,4 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       working-directory: MovieAPI
-      run: docker build . --file Dockerfile --tag padawansMovieAPI:$(date +%s)
+      run: docker build . --file Dockerfile --tag padawansmovieapi:$(date +%s)
