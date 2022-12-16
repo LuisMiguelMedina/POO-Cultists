@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <header>
+        <h1>MovieAPI</h1>
+        <a th:href="@{/register}">Register</a>
+        <a th:href="@{/login}">Login</a>
+        <a th:href="@{/movie/new}">Create a new movie</a>
+    </header>
+    <div class="movies-container">
+        <div class="movie" th:each="movie : ${movies}">
+            <h2><a th:href="@{'/movie/'+${movie.movieId}}"
+                th:text="${movie.name}">
+                Movie Title</a></h2>
+            <h5 th:text="'published by: ' + ${user.username}">username</h5>
+        </div>
+    </div>
+</body>
+</html>

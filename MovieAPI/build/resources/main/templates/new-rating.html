@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Rating</title>
+</head>
+<body>
+    <a th:href="@{/}">Home</a>
+    <form action="#"
+         th:action="@{'/rating/view'}"
+         th:object="${rating}"
+         method="post">
+        <input type="hidden" th:field="*{createdAt}">
+        <h1>Write a rating</h1>
+        <div>
+            <label for="new-rating-user">username</label>
+            <input id="new-rating-user" type="text" th:field="*{user.username}" placeholder="Username">
+        </div>
+        <div>
+            <label for="new-rating-movie">Movie</label>
+            <input id="new-rating-movie" type="text" th:field="*{movie.name}" placeholder="Movie to be rated">
+        </div>
+        <div>
+            <label for="new-rating-summary">rating summary</label>
+            <input id="new-rating-summary" type="text" th:field="*{summary}" placeholder="rating summary">
+        </div>
+        <div>
+            <label for="new-rating-review">Rating review</label>
+            <textarea id="new-rating-review" th:field="*{review}" cols="30" rows="10">rating review</textarea>
+        </div>
+        <button type="submit">Upload</button>
+    </form>
+</body>
+</html>

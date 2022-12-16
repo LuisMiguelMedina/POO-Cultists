@@ -9,7 +9,7 @@
 <body>
     <a th:href="@{/}">Home</a>
     <form action="#"
-         th:action="@{'/movie/'+${movie.id}}"
+         th:action="@{'/rating/view'}"
          th:object="${rating}"
          method="post">
         <input type="hidden" th:field="*{createdAt}">

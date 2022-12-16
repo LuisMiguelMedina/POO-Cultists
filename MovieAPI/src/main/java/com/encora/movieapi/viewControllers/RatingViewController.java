@@ -29,21 +29,23 @@ public class RatingViewController {
     @Autowired
     private RatingsService ratingsService;
 
-    @GetMapping("/movie/{id}/new_rating")
-    public String viewCreateRating(@PathVariable Long id, Model model){
+    @GetMapping("/rating/view")
+    public String viewCreateRating(Model model){
         Users user = new Users();
-        Optional<Movies> movie = moviesService.getById(id);
+        Movies movies = new Movies();
         Ratings rating = new Ratings();
         rating.setUser(user);
-        rating.setMovie(movie.get());
+        rating.setMovie(movies);
         model.addAttribute("rating", rating);
         return "new-rating";
     }
 
-    @PostMapping("/movie/{id}/new_rating")
+    @PostMapping("/rating/view")
     public String createRating(@ModelAttribute Ratings rating){
         Optional<Users> temporaryUser = userService.getUser(rating.getUser().getUsername());
+        Optional<Movies> movie = moviesService.getMovie(rating.getMovie().getName ());
         rating.setUser(temporaryUser.get());
+        rating.setMovie(movie.get());
         ratingsService.createRating(rating);
         return "redirect:/movie/"+rating.getMovie().getMovieId();
     } 
