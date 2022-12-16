@@ -17,10 +17,12 @@ public class Movies implements Serializable {
     )
     private Long movieId;
 
-    @Column(name = "movie_name")
+    @Column(name = "movie_name",
+    nullable = false)
     private String movieName;
 
-    @Column(name = "release_year")
+    @Column(name = "release_year",
+    nullable = false)
     private int releaseYear;
 
 
@@ -99,5 +101,9 @@ public class Movies implements Serializable {
 
     public void setUser(Users user) {
         this.users = user;
+    }
+
+    public List<Ratings> getRatings(){
+        return ratingsList;
     }
 }

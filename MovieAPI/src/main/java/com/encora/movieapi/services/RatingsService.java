@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -25,7 +27,15 @@ public class RatingsService {
     }
 
     @Transactional
-    public Ratings save(Ratings ratings){
+    public Ratings createRating(Ratings ratings){
+        ratings.setCreatedAt(LocalDateTime.now());
+        ratings.setUpdateAt(LocalDateTime.now());
+        return ratingsRepository.save(ratings);
+    }
+
+    @Transactional
+    public Ratings updateRating(Ratings ratings){
+        ratings.setUpdateAt(LocalDateTime.now());
         return ratingsRepository.save(ratings);
     }
 

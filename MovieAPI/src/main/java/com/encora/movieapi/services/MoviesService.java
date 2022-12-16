@@ -1,5 +1,6 @@
 package com.encora.movieapi.services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -36,7 +37,15 @@ public class MoviesService {
     }
 
     @Transactional
-    public Movies save(Movies movie){
+    public Movies movieUpdate(Movies movie){
+        movie.setUpdateAt(LocalDateTime.now());
+        return moviesRepository.save(movie);
+    }
+
+    @Transactional
+    public Movies movieCreate(Movies movie){
+        movie.setUpdateAt(LocalDateTime.now());
+        movie.setCreatedAt(LocalDateTime.now());
         return moviesRepository.save(movie);
     }
 

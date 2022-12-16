@@ -40,12 +40,10 @@ public class RatingsController {
         Users user = ratingCreator.getUser();
         Movies optionalMovie = moviesService.getMovie(movie.getName());
         Users optionalUser = userService.getUser(user.getUsername());
-        ratingsService.save(rating);
-        rating.setCreatedAt(LocalDateTime.now());
-        rating.setUpdateAt(LocalDateTime.now());
+        ratingsService.createRating(rating);
         ratingsService.addMovie(optionalMovie, rating.getRatingId());
         ratingsService.addUser(optionalUser, rating.getRatingId());
-        return ratingsService.save(rating);
+        return ratingsService.createRating(rating);
     }
 
     //Update
@@ -58,7 +56,7 @@ public class RatingsController {
         ratingOptional.setReview(ratings.getReview());
         ratingOptional.setSummary(ratings.getSummary());
         ratingOptional.setUpdateAt(LocalDateTime.now());
-        ratingsService.save(ratingOptional);
+        ratingsService.updateRating(ratingOptional);
 
         return ResponseEntity.noContent().build();
     }

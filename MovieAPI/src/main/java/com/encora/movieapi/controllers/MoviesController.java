@@ -9,7 +9,6 @@ import com.encora.movieapi.services.MoviesService;
 import com.encora.movieapi.services.UserService;
 import com.encora.movieapi.utilities.MovieCreation;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,13 +33,10 @@ public class MoviesController{
     public Movies createMovie(@RequestBody MovieCreation movieCreator){
         Movies movie = movieCreator.getMovie();
         Users temporaryUser = movieCreator.getUser();
-
-        moviesService.save(movie);
-        movie.setCreatedAt(LocalDateTime.now());
-        movie.setUpdateAt(LocalDateTime.now());
+        moviesService.movieCreate(movie);
         Users user = userService.getUser(temporaryUser.getUsername());
         moviesService.addUser(user);
-        return moviesService.save(movie);
+        return moviesService.movieCreate(movie);
     }
 
     //Update
@@ -51,8 +47,7 @@ public class MoviesController{
         Movies movieOptional = moviesOptional.get();
         movieOptional.setName(movies.getName());
         movieOptional.setReleaseYear(movies.getReleaseYear());
-        movieOptional.setUpdateAt(LocalDateTime.now());
-        moviesService.save(movieOptional);
+        moviesService.movieUpdate(movieOptional);
         return ResponseEntity.noContent().build();
     }
 

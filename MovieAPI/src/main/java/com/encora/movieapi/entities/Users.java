@@ -88,7 +88,7 @@ public class Users implements Serializable {
     }
 
     public List<Movies> getMoviesList() {
-        return moviesList;
+        return this.moviesList;
     }
 
     public void setMovie(Movies movie) {
