@@ -41,9 +41,9 @@ public class movieViewController {
 
     @GetMapping("/movie/new")
     public String createNewMovie(Model model){
-        Users user = userService.getUser("admin");
+        Optional<Users> user = userService.getUser("admin");
         Movies movie = new Movies();
-        movie.setUser(user);
+        movie.setUser(user.get());
         model.addAttribute("movie", movie);
         return "new_movie";
     }

@@ -34,8 +34,10 @@ public class MoviesController{
         Movies movie = movieCreator.getMovie();
         Users temporaryUser = movieCreator.getUser();
         moviesService.movieCreate(movie);
-        Users user = userService.getUser(temporaryUser.getUsername());
-        moviesService.addUser(user);
+        Optional<Users> user = userService.getUser(temporaryUser.getUsername());
+        if (user.isPresent()) {
+            moviesService.addUser(user.get());
+        }
         return moviesService.movieCreate(movie);
     }
 

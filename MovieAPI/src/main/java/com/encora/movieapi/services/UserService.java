@@ -42,7 +42,7 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
-    public Users getUser(String username){
+    public Optional<Users> getUser(String username){
         return userRepository.getUser(username);
     }
 

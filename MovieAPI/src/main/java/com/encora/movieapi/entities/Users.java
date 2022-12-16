@@ -15,13 +15,15 @@ public class Users implements Serializable {
     @Column(
             name = "username",
             unique = true,
-            nullable = false
+            nullable = false,
+            length = 10
     )
     private String username;
     @Column(
             name = "email",
             unique = true,
-            nullable = false
+            nullable = false,
+            length = 30
     )
     private String userEmail;
 

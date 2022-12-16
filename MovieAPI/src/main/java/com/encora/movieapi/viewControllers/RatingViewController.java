@@ -1,10 +1,13 @@
 package com.encora.movieapi.viewControllers;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.encora.movieapi.entities.Movies;
@@ -26,25 +29,23 @@ public class RatingViewController {
     @Autowired
     private RatingsService ratingsService;
 
-    @GetMapping("/rating/new")
-    public String viewCreateRating(Model model){
+    @GetMapping("/movie/{id}/new_rating")
+    public String viewCreateRating(@PathVariable Long id, Model model){
         Users user = new Users();
-        Movies movie = new Movies();
+        Optional<Movies> movie = moviesService.getById(id);
         Ratings rating = new Ratings();
         rating.setUser(user);
-        rating.setMovie(movie);
+        rating.setMovie(movie.get());
         model.addAttribute("rating", rating);
         return "new-rating";
     }
 
-    @PostMapping("/rating/new")
+    @PostMapping("/movie/{id}/new_rating")
     public String createRating(@ModelAttribute Ratings rating){
-        Movies temporaryMovie = moviesService.getMovie(rating.getMovie().getName());
-        Users temporaryUser = userService.getUser(rating.getUser().getUsername());
-        rating.setMovie(temporaryMovie);
-        rating.setUser(temporaryUser);
+        Optional<Users> temporaryUser = userService.getUser(rating.getUser().getUsername());
+        rating.setUser(temporaryUser.get());
         ratingsService.createRating(rating);
-        return "redirect:/movie/"+temporaryMovie.getMovieId();
+        return "redirect:/movie/"+rating.getMovie().getMovieId();
     } 
 
 }

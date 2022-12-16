@@ -38,11 +38,13 @@ public class RatingsController {
         Ratings rating = ratingCreator.getRating();
         Movies movie = ratingCreator.getMovie();
         Users user = ratingCreator.getUser();
-        Movies optionalMovie = moviesService.getMovie(movie.getName());
-        Users optionalUser = userService.getUser(user.getUsername());
+        Optional<Movies> optionalMovie = moviesService.getMovie(movie.getName());
+        Optional<Users> optionalUser = userService.getUser(user.getUsername());
         ratingsService.createRating(rating);
-        ratingsService.addMovie(optionalMovie, rating.getRatingId());
-        ratingsService.addUser(optionalUser, rating.getRatingId());
+        if(optionalMovie.isPresent()&&optionalUser.isPresent()){
+            ratingsService.addMovie(optionalMovie.get(), rating.getRatingId());
+            ratingsService.addUser(optionalUser.get(), rating.getRatingId());
+        }
         return ratingsService.createRating(rating);
     }
 

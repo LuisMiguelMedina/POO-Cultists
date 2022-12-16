@@ -24,7 +24,7 @@ public class MoviesService {
         return moviesRepository.findById(ID);
     }
 
-    public Movies getMovie(String name){
+    public Optional<Movies> getMovie(String name){
         return moviesRepository.getMovie(name);
     }
 

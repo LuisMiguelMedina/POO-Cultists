@@ -1,5 +1,7 @@
 package com.encora.movieapi.repositories;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -18,5 +20,5 @@ public interface MoviesRepository extends JpaRepository<Movies, Long> {
     void addUser(@Param("users")Users user);
 
     @Query(value = "select * from movies where movies.movie_name =:name", nativeQuery = true)
-    Movies getMovie(@Param("name")String name);
+    Optional<Movies> getMovie(@Param("name")String name);
 }

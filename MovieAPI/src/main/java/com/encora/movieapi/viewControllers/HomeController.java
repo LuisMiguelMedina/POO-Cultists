@@ -19,9 +19,11 @@ public class HomeController {
     @GetMapping("/")
     public String getHomePage(Model model){
         List<Movies> moviesList = moviesService.getAll();
-        model.addAttribute("movies", moviesList);
-        for (Movies movies : moviesList) {
-            model.addAttribute("user", movies.getUser());
+        if (moviesList.size()>0) {
+                model.addAttribute("movies", moviesList);
+            for (Movies movies : moviesList) {
+                model.addAttribute("user", movies.getUser());
+            }
         }
         return "home";
     }
