@@ -16,7 +16,7 @@ RUN gradle clean build
 # actual container
 FROM adoptopenjdk/openjdk11:alpine-jre
 ENV ARTIFACT_NAME=padawansmovieapi-0.0.1-SNAPSHOT.jar
-ENV APP_HOME=../MovieAPI/
+ENV APP_HOME=/MovieAPI/target
 
 WORKDIR $APP_HOME
 COPY --from=TEMP_BUILD_IMAGE $APP_HOME/build/libs/$ARTIFACT_NAME .
